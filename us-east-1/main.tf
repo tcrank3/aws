@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.16.0"
+  required_version = ">= 1.13.2"
 
   backend "s3" {
     bucket       = "terraform-0087"
