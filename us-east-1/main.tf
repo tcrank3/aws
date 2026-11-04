@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
     bucket       = "terraform-0087"
     region       = "us-east-1"
-    key          = "aws/state/terraform.tfstate"
+    key          = "aws/us-east-1/terraform.tfstate"
     encrypt      = true
     use_lockfile = true
   }
@@ -22,6 +22,6 @@ provider "aws" {
 }
 
 module "s3" {
-  source       = "./modules/s3"
+  source       = "../modules/s3"
   bucket_names = var.bucket_names
 }
