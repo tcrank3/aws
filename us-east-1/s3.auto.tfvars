@@ -1,3 +1,3 @@
 bucket_names = [
-  "test4-0087"
+  "virginia-test1-0087"
 ]
