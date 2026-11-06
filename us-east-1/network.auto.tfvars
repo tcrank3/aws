@@ -22,7 +22,7 @@ route_tables = {
 
 routes = {
   Internal_VAF_igw = {
-    route_table_key        = "Internal_VAF"
+    route_table_key        = "External_VAF"
     destination_cidr_block = "0.0.0.0/0"
     gateway_id             = "igw-0535abead5ca94e6e"
   }

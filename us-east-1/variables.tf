@@ -71,9 +71,22 @@ variable "iam_policies" {
 variable "iam_roles" {
   description = "IAM roles keyed by role name, with trust policies and attached policy names."
   type = map(object({
-    description        = string
-    assume_role_policy = string
-    policy_names       = set(string)
+    description         = string
+    assume_role_policy  = string
+    policy_names        = set(string)
     managed_policy_arns = optional(set(string), [])
+  }))
+}
+
+variable "instances" {
+  description = "EC2 instances keyed by their Name tag."
+  type = map(object({
+    ami                = string
+    instance_type      = string
+    key_name           = string
+    subnet_id          = string
+    security_group_ids = set(string)
+    eip_name           = string
+    iam_role_name      = string
   }))
 }

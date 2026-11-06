@@ -50,3 +50,17 @@ module "iam" {
   policies = var.iam_policies
   roles    = var.iam_roles
 }
+
+module "instances" {
+  for_each = var.instances
+
+  source                    = "../modules/instances"
+  name                      = each.key
+  ami                       = each.value.ami
+  instance_type             = each.value.instance_type
+  key_name                  = each.value.key_name
+  subnet_id                 = each.value.subnet_id
+  security_group_ids        = each.value.security_group_ids
+  eip_allocation_id         = module.network.elastic_ip_allocation_ids[each.value.eip_name]
+  iam_instance_profile_name = module.iam.instance_profile_names[each.value.iam_role_name]
+}
